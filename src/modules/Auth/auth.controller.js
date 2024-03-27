@@ -18,7 +18,7 @@ export const signUp = async(req,res,next)=>{
     }
 
     // send confirmation email to the user
-    const userToken=jwt.sign({email},process.env.JWT_SECRET_VERFICATION,{expiresIn:'1d'})
+    const userToken=jwt.sign({email},process.env.JWT_SECRET_VERFICATION,{expiresIn:'2w'})
 
     const isEmailSent=await sendEmailService(
         email,
@@ -88,7 +88,7 @@ export const signin = async (req,res,next)=>{
     }
 
     // generate login token
-    const token =jwt.sign({email, id:user._id ,loggedIn:true},process.env.JWT_SECRET_LOGIN,{expiresIn:"1d"})    
+    const token =jwt.sign({email, id:user._id ,loggedIn:true},process.env.JWT_SECRET_LOGIN,{expiresIn:"2w"})    
     // console.log(process.env.TOKEN_SIGNATURE);
     // update isLoggedIn = true in database
     user.isLoggedIn =true
@@ -102,10 +102,4 @@ export const signin = async (req,res,next)=>{
     })
 
 }
-
-
-
-
-
-
 

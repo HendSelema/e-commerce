@@ -22,14 +22,15 @@ expressAsyncHandler(categoryController.updateCategory))
 // ............delete
 router.delete('/delete',
 auth(endPointsRoles.ADD_CATEGORY),
-// multerMiddleHost({extensions:allowedExtensions.image}).single('image'),
 expressAsyncHandler(categoryController.deleteCategory))
 
 // ............getAllCategory
 router.get('/',
-// auth(endPointsRoles.ADD_CATEGORY),
-// multerMiddleHost({extensions:allowedExtensions.image}).single('image'),
 expressAsyncHandler(categoryController.getAllCategory))
+
+// ............get Category by id
+router.get('/:categoryId',
+expressAsyncHandler(categoryController.getcategory))
 
 
 

@@ -34,11 +34,23 @@ const categorySchema =new Schema({
         // superAdmin
         type:Schema.Types.ObjectId,
         ref:'User',
-    },
+    },    
   
 },
 {
-    timestamps:true 
+    timestamps:true ,
+    toJSON:{virtuals:true},
+    toObject:{virtuals:true}
 })
+
+    // virtual populate for subcategory model
+categorySchema.virtual("subCategories",{
+    ref:"SubCategory",
+    localField:"_id",
+    foreignField:"categoryId"
+})
+
+
+
 
 export default model('Category',categorySchema)

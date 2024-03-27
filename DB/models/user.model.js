@@ -50,6 +50,9 @@ isLoggedIn:{
     type:Boolean,
     default:false
 },   
+code:{
+    type:String
+}
 },
 {timestamps:true})
 
