@@ -50,5 +50,10 @@ const productSchema =new Schema({
     toJSON:{virtuals:true},
     toObject:{virtuals:true}
 })
+productSchema.virtual('Reviews',{
+    ref:"Review",
+    localField:'_id',
+    foreignField:'productId'
+})
 
 export default model('Product',productSchema)

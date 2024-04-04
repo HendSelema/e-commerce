@@ -145,14 +145,14 @@ export const getProduct = async(req,res,next)=>{
     const {productId}=req.params
     // check product
     const productExist=await Product.findById(productId).populate(
-            [{path:'brandId' ,select:'name'} ,{path:'subCategoryId',select:'name'},{path:'categoryId' ,select:'name'}])
+            [{path:'brandId' ,select:'name'} ,{path:'subCategoryId',select:'name'},{path:'categoryId' ,select:'name'},{path:'Reviews'}])
     if(!productExist)return next({cause:404 , message:'product not found'})
 
     res.status(200).json({success:true , message: "product fetched successfully",data:productExist})
 
 }
 
-// .................... get all products ........
+// .................... get all products ...features.....
 export const getAllProducts = async(req,res,next)=>{
     const {page,size,sort, ...query}=req.query
 

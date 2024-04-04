@@ -70,7 +70,6 @@ export const verifyEmail=async (req,res,next)=>{
 
 }
 
-
 // ....................signin...............
 
 export const signin = async (req,res,next)=>{
